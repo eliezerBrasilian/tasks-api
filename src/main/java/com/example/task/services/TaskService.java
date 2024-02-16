@@ -1,6 +1,8 @@
 package com.example.task.services;
 
+import com.example.task.dtos.TaskRequestDTO;
 import com.example.task.dtos.TaskResponseDTO;
+import com.example.task.entities.Task;
 import com.example.task.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,4 +19,10 @@ public class TaskService {
 
         return tasks;
     }
+
+    public void saveTask(TaskRequestDTO taskDto) {
+        var task = new Task(taskDto);
+        repository.save(task);
+    }
+
 }

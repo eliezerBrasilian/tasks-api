@@ -1,5 +1,6 @@
 package com.example.task.entities;
 
+import com.example.task.dtos.TaskRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -20,8 +21,7 @@ public class Task {
 
     @Column
     private Boolean completed;
-
-
+    
     public String getId() {
         return id;
     }
@@ -32,5 +32,11 @@ public class Task {
 
     public Boolean getCompleted() {
         return completed;
+    }
+
+
+    public Task(TaskRequestDTO taskDto) {
+        this.title = taskDto.title();
+        this.completed = taskDto.completed();
     }
 }

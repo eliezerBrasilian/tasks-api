@@ -1,11 +1,10 @@
 package com.example.task.controllers;
 
+import com.example.task.dtos.TaskRequestDTO;
 import com.example.task.dtos.TaskResponseDTO;
 import com.example.task.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +17,12 @@ public class TaskController {
     @GetMapping
     List<TaskResponseDTO> getTasks() {
         return service.getTasks();
+    }
+
+
+    @PostMapping
+    void saveTask(@RequestBody TaskRequestDTO taskDto) {
+        service.saveTask(taskDto);
     }
 
 }
