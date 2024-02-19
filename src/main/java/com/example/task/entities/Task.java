@@ -4,8 +4,10 @@ import com.example.task.dtos.TaskRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -21,18 +23,6 @@ public class Task {
 
     @Column
     private Boolean completed;
-    
-    public String getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public Boolean getCompleted() {
-        return completed;
-    }
 
 
     public Task(TaskRequestDTO taskDto) {
