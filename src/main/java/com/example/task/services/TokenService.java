@@ -11,10 +11,8 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-
 @Service
 public class TokenService {
-
     private String secret = "segredinho";
 
     public String generateToken(User userModel) {

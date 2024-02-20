@@ -28,14 +28,16 @@ public class SecurityConfigurations {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/register").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "api/tasks/v1/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/tasks/v1/auth/register").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "api/tasks/v1").authenticated()
+                        .requestMatchers(HttpMethod.GET, "api/tasks/v1").authenticated()
                         .anyRequest().permitAll()
+
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
