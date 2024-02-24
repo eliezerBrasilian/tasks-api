@@ -2,10 +2,7 @@ package com.example.task.entities;
 
 import com.example.task.dtos.TaskRequestDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
@@ -13,6 +10,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "tasks")
+@Setter
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

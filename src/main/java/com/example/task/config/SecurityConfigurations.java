@@ -32,6 +32,7 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.POST, "api/tasks/v1/auth/register").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "api/tasks/v1").authenticated()
                         .requestMatchers(HttpMethod.GET, "api/tasks/v1").authenticated()
+                        .requestMatchers(HttpMethod.PUT, "api/tasks/v1").authenticated()
                         .anyRequest().permitAll()
 
                 )

@@ -1,6 +1,7 @@
 package com.example.task.controllers;
 
 import com.example.task.dtos.TaskRequestDTO;
+import com.example.task.dtos.TaskRequestRenameTitleDto;
 import com.example.task.dtos.TaskResponseDTO;
 import com.example.task.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class TaskController {
     @PostMapping
     void saveTask(@RequestBody TaskRequestDTO taskDto) {
         service.saveTask(taskDto);
+    }
+
+    @PutMapping
+    void renameTask(@RequestBody TaskRequestRenameTitleDto newTask) {
+        service.renameTitle(newTask);
     }
 
 }
